@@ -1,11 +1,16 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Address } from '../types';
+
+const apiLocal = 'http://localhost:3000' as const;
+const apiAddress = 'address' as const;
 
 @Injectable({
   providedIn: 'root',
 })
 export class AddressService {
+  private readonly httpClient = inject(HttpClient);
   private addressesSubject = new BehaviorSubject<Address[]>([
     {
       city: 'Ljubljana',
@@ -38,7 +43,7 @@ export class AddressService {
   }
 
   getAddresses(): Observable<Address[]> {
-    return this.addresses$;
+    return this.httpClient.get<Address[]>(`${apiLocal}/${apiAddress}`);
   }
 
   deleteAddress(addressToDelete: Address): void {

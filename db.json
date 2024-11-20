@@ -1,0 +1,44 @@
+{
+    "address": [
+        {
+            "city": "Ljubljana",
+            "state": "Slovenia",
+            "street": "Koroška cesta 1",
+            "zip": "1000",
+            "id": 1
+        },
+        {
+            "city": "Maribor",
+            "state": "Slovenia",
+            "street": "Jurkova cesta 1",
+            "zip": "2000",
+            "id": 2
+        }
+    ],
+    "users": [
+        {
+            "id": 1,
+            "username": "tmajer",
+            "lock": false,
+            "profile_id": 1
+        },
+        {
+            "id": 2,
+            "username": "gcime",
+            "lock": true,
+            "profile_id": 2
+        }
+    ],
+    "profile": [
+        {
+            "id": 1,
+            "net_id": "tmajer@guest.arnes.si",
+            "person_id": 1
+        },
+        {
+            "id": 2,
+            "net_id": "gcime@guest.arnes.si",
+            "person_id": 2
+        }
+    ]
+}
