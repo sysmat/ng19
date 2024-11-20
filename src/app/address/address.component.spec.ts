@@ -1,24 +1,23 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddressComponent } from './address.component';
 import { Address } from '../types';
-import { of } from 'rxjs';
+import { AddressComponent } from './address.component';
 
 describe('AddressComponent', () => {
   let component: AddressComponent;
   let fixture: ComponentFixture<AddressComponent>;
   const testAddress: Address = {
+    id: 1,
     street: '123 Main St',
     city: 'Anytown',
     state: 'USA',
-    zip: '12345'
+    zip: '12345',
   };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AddressComponent]
-    })
-    .compileComponents();
+      imports: [AddressComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(AddressComponent);
     component = fixture.componentInstance;

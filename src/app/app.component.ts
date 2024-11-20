@@ -1,23 +1,16 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { AddressComponent } from './address/address.component';
-import { Address } from './types';
+import { AddressesComponent } from './address/addresses.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, AddressComponent],
+  imports: [RouterOutlet, AddressesComponent],
   template: `
     <h1>Hello, {{ title }}</h1>
-    <app-address [address]="address"></app-address>
+    <app-addresses></app-addresses>
     <router-outlet />
-  `,  
+  `,
 })
 export class AppComponent {
   title = 'ng19';
-  address: Address = {
-    street: '123 Main St',
-    city: 'Anytown',
-    state: 'USA',
-    zip: '12345'
-  };
 }

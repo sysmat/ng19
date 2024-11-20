@@ -1,16 +1,23 @@
-import { Component, computed, input } from '@angular/core';
-import { Address } from '../types';
-import { JsonPipe } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { AddressService } from './address.service';
 
 @Component({
   selector: 'app-addresses',
-  imports: [JsonPipe],
-  template: `<p>address works!</p>
-  {{ address() | json }}
-  <hr>  
-  `  
+  template: `
+    <h2>All Addresses</h2>
+    @for (address of addresses(); track address.street) {
+    <div class="address-card">
+      <p>Street: {{ address.street }}</p>
+      <p>City: {{ address.city }}</p>
+      <p>State: {{ address.state }}</p>
+      <p>ZIP: {{ address.zip }}</p>
+      <hr />
+    </div>
+    }
+  `,
 })
 export class AddressesComponent {
-  address = input.required<Address>();
-  
+  private addressService = inject(AddressService);
+  addresses = toSignal(this.addressService.getAddresses());
 }
