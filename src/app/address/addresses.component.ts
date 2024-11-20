@@ -3,21 +3,14 @@ import { Address } from '../types';
 import { JsonPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-address',
+  selector: 'app-addresses',
   imports: [JsonPipe],
   template: `<p>address works!</p>
   {{ address() | json }}
-  <hr>
-  <strong>
-          @if (isCreate()) {
-            Dodajanje naslova
-          } @else {
-            Urejanje naslova
-          }
-        </strong>
+  <hr>  
   `  
 })
-export class AddressComponent {
+export class AddressesComponent {
   address = input.required<Address>();
-  isCreate = computed(() => (this.address() ? false : true));
+  
 }
